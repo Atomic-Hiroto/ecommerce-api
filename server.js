@@ -3,6 +3,9 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 
+const categoryRouter = require("./routes/categoryRoute")
+const productRouter = require("./routes/productRoute")
+
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -11,7 +14,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Working");
 });
-//app.use("/api/products", productRouter);
+app.use('/api/categories', categoryRouter);
+app.use("/api/products", productRouter);
 //app.use("/api/orders", orderRouter);
 
 app.use((req, res, next) => {
