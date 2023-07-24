@@ -7,6 +7,9 @@ GET /api/categories - Get all categories
 ## Product APIs
 GET /api/products - Get all products<br /> 
 GET /api/products/:id - Get single product by id<br /> 
+POST /api/products - Create a new product<br /> 
+PATCH /api/products/:id - Update an existing product by id<br /> 
+DELETE /api/products/:id - Delete a product by id<br /> 
 
 ## Cart APIs
 POST /api/cart - Create new cart for user<br /> 
