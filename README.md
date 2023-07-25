@@ -15,7 +15,7 @@ DELETE /api/products/:id - Delete a product by id<br />
 POST /api/cart - Create new cart for user<br /> 
 GET /api/cart - Get cart for authenticated user<br /> 
 PUT /api/cart/:productId - Add product to cart<br /> 
-PUT /api/cart/:productId - Update product quantity in cart<br /> 
+POST /api/cart/:productId - Update product quantity in cart<br /> 
 DELETE /api/cart/:productId - Delete product from cart<br /> 
 
 ## Order APIs

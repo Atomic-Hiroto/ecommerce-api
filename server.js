@@ -7,6 +7,7 @@ const categoryRouter = require("./routes/categoryRoute")
 const productRouter = require("./routes/productRoute");
 const userRouter = require("./routes/userRoute");
 const cartRouter = require("./routes/cartRoute")
+const orderRouter = require("./routes/orderRoute")
 
 dotenv.config();
 
@@ -21,7 +22,7 @@ app.use('/api/categories', categoryRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/cart", cartRouter)
-//app.use("/api/orders", orderRouter);
+app.use("/api/orders", orderRouter);
 
 app.use((req, res, next) => {
   res.status(404).json({ message: "Resource not found" });
