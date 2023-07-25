@@ -13,7 +13,7 @@ async function register(req, res) {
             return res.status(400).json({ message: "Email already in use" });
         }
         const hashedPassword = await bcrypt.hash(password, 10);
-        const user = await userModel.create({
+        let user = await userModel.create({
             name,
             email,
             password: hashedPassword,
