@@ -22,7 +22,7 @@ async function register(req, res) {
         res.status(201).json(user);
     } catch (error) {
         console.log(error);
-        res.status(500).send("Server error");
+        res.status(500).send({message: 'Server Error'});
     }
 }
 
@@ -63,7 +63,7 @@ async function login(req, res) {
         });
     } catch (error) {
         console.log(error);
-        res.status(500).send("Server error");
+        res.status(500).send({message: 'Server Error'});
     }
 }
 

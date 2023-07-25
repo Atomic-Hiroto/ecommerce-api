@@ -6,7 +6,7 @@ async function getAllCategories(req, res){
     res.json(categories);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Server error');
+    res.status(500).send({message: 'Server Error'});
   }
 }
 

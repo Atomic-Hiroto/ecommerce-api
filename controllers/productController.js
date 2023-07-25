@@ -6,7 +6,7 @@ async function getAllProducts(req,res){
         res.json(products);
       } catch (err) {
         console.error(err);
-        res.status(500).send('Server error');
+        res.status(500).send({message: 'Server Error'});
       }
 }
 
@@ -17,7 +17,7 @@ async function getProductById(req,res){
         res.json(product);
       } catch (err) {
         console.error(err);
-        res.status(500).send('Server error');
+        res.status(500).send({message: 'Server Error'});
       }
 }
 
@@ -28,7 +28,7 @@ async function createProduct(req,res){
     res.status(201).json(product);
     } catch (err) {
       console.error(err);
-      res.status(500).send('Server error');
+      res.status(500).send({message: 'Server Error'});
     }
 }
 
@@ -39,7 +39,7 @@ async function updateProduct(req,res){
     res.json(product);
     } catch (err) {
       console.error(err);
-      res.status(500).send('Server error');
+      res.status(500).send({message: 'Server Error'});
     }
 }
 
@@ -50,7 +50,7 @@ async function deleteProduct(req,res){
     res.json({ message: 'Product deleted' });
     } catch (err) {
       console.error(err);
-      res.status(500).send('Server error');
+      res.status(500).send({message: 'Server Error'});
     }
 }
 
