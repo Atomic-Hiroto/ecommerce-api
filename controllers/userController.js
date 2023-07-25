@@ -18,6 +18,7 @@ async function register(req, res) {
             email,
             password: hashedPassword,
         });
+        user = user.toJSON()
         delete user.password;
         res.status(201).json(user);
     } catch (error) {
