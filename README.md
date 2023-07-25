@@ -1,20 +1,20 @@
-# eEcommerce API
+# Ecommerce API
 This is a backend API for an ecommerce application built with Node, Express and MongoDB.
 
 Features: <br/>
-Product catalog (CRUD)<br/>
-Shopping cart<br/>
-User registration and authentication<br/>
-Order placement<br/>
-Order history<br/>
-Usage<br/>
-Environment Variables<br/>
+- Product catalog (CRUD)<br/>
+- Shopping cart<br/>
+- User registration and JWT authentication<br/>
+- Order placement<br/>
+- Order history<br/>
+- Rate limiting to handle high load<br/>
+- Secure encryption with bcryptjs<br/>
 
 # Create a .env file in then root and add the following:
 ```
 MONGO_URI=your_mongo_uri
 JWT_SECRET=your_secret
-PATH=your_port (optional, or else it defaults to port 5000)
+PATH=your_port -optional (it defaults to port 5000)
 ```
 
 # Install Dependencies
@@ -30,8 +30,8 @@ npm start
 To view the list of available APIs and their usage, go to http://localhost:5000/api-docs
 
 ## Category APIs
-GET /api/categories - Get all categories
-<br /> 
+GET /api/categories - Get all categories<br />
+ 
 ## Product APIs
 GET /api/products - Get all products<br /> 
 GET /api/products/:id - Get single product by id<br /> 

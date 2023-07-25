@@ -3,8 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const swaggerUi = require("swagger-ui-express");
-const swaggerDocs = require("./config/swagger");
-
+const swaggerDocument = require('./config/swagger.json');
 const rateLimit = require('express-rate-limit');
 
 const limiter = rateLimit({
@@ -22,13 +21,14 @@ dotenv.config();
 
 const app = express();
 app.use(limiter);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("Working");
+    res.send("<h1>E-commerce API</h1><p>Check out the readme docs or the swagger documentation at /api-docs route</p>")
 });
+
 app.use("/api/categories", categoryRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);

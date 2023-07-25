@@ -1,0 +1,296 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Ecommerce API",
+      "description": "Ecommerce API documentation",
+      "version": "1.0.0" 
+    },
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "schemes": ["http"],
+  
+    "paths": {
+      "/categories": {
+        "get": {
+          "summary": "Get all categories",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+  
+      "/products": {
+        "get": {
+          "summary": "Get all products",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+  
+        "post": {
+          "summary": "Create a product",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            }
+          }
+        }
+  
+      },
+      
+      "/products/{productId}": {
+        "get": {
+          "summary": "Get product by ID",
+          "parameters": [
+            {
+              "name": "productId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": { 
+              "description": "Not Found"
+            }
+          }
+        },
+  
+        "patch": {
+          "summary": "Update a product",
+          "parameters": [
+            {
+              "name": "productId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        },
+  
+        "delete": {
+          "summary": "Delete a product",
+          "parameters": [
+            {
+              "name": "productId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        }
+      },
+  
+      "/users/register": {
+        "post": {
+          "summary": "Register a user",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            }
+          }
+        }
+      },
+  
+      "/users/login": {
+        "post": {
+          "summary": "Login a user",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/cart": {
+        "post": {
+          "summary": "Create cart for user",
+          "responses": {
+            "201": {
+              "description": "Created"
+            }
+          }
+        },
+        
+        "get": {
+          "summary": "Get cart for authenticated user",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "401": {
+              "description": "Unauthorized"
+            }
+          }
+        }
+      },
+    
+      "/cart/{productId}": {
+        "put": {
+          "summary": "Add product to cart",
+          "parameters": [
+            {
+              "name": "productId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+            "patch": {
+                "summary": "Update a product from the cart",
+                "parameters": [
+                  {
+                    "name": "productId",
+                    "in": "path",
+                    "required": true
+                  }
+                ],  
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                }
+        },
+        
+        "delete": {
+          "summary": "Delete product from cart",
+          "parameters": [
+            {
+              "name": "productId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },  
+    
+      "/orders": {
+        "post": {
+          "summary": "Create an order",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created" 
+            }
+          }
+        },
+    
+        "get": {
+          "summary": "Get orders for authenticated user",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "401": {
+              "description": "Unauthorized" 
+            }
+          }
+        }
+      },
+    
+      "/orders/{orderId}": {
+        "get": {
+          "summary": "Get order details by ID",
+          "parameters": [
+            {
+              "name": "orderId",
+              "in": "path",
+              "required": true 
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        }
+      }    
+  
+    }
+  
+  }
