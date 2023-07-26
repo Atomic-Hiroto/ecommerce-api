@@ -243,7 +243,8 @@ Sample Request
         "product": "456",
         "quantity": 1
       }
-    ]
+    ],
+    "total":3
   }
 }
 
