@@ -22,7 +22,6 @@ const orderRouter = require("./routes/orderRoute");
 
 // Middlewares and Config
 dotenv.config();
-
 const app = express();
 app.use(limiter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -30,11 +29,12 @@ app.use(cors());
 app.use(express.json());
 
 
-// Routes
+// Base Routes
 app.get("/", (req, res) => {
     res.send("<h1>E-commerce API</h1><p>Check out the readme docs or the swagger documentation at /api-docs route</p>")
 });
 
+// Routes
 app.use("/api/categories", categoryRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
