@@ -135,6 +135,9 @@ Sample Response
 ```
 
 ## Cart APIs
+```
+All of the cart endpoints require a auth bearer token to be present in its request
+```
 POST /api/cart - Create new cart for user<br /> 
 ```
 Creates a new cart for the authenticated user.
@@ -148,6 +151,23 @@ Sample Response
 }
 ```
 GET /api/cart - Get cart for authenticated user<br /> 
+```
+Sample Response
+
+{
+  "id": "5e442df63cc3b225f86a1703",
+  "products": [
+    {
+      "product": "5e442cf1a9a8305f5ca25a2c", 
+      "quantity": 2  
+    },
+    {
+      "product": "5e442dd63cc3b225f86a1701",
+      "quantity": 1
+    }
+  ]
+}
+```
 PUT /api/cart/:productId - Add product to cart<br /> 
 ```
 Adds a product to the authenticated user's cart.
