@@ -1,5 +1,6 @@
 const express = require('express');
 const cartRouter = express.Router();
+// Protect middleware for authentication
 const { protect } = require('../middlewares/auth'); 
 
 const {getCart,createCart, addToCart, updateCartQuantity, deleteFromCart} = require('../controllers/cartController');

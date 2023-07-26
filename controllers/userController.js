@@ -2,6 +2,8 @@ const userModel = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+
+// Registers the user after checking for validation and stores it in DB with a hashed passoword
 async function register(req, res) {
     try {
         const { name, email, password } = req.body;
@@ -27,6 +29,7 @@ async function register(req, res) {
     }
 }
 
+// Logs in the user by validating data and generates a JWT token to send as a response
 async function login(req, res) {
     try {
         const { email, password } = req.body;

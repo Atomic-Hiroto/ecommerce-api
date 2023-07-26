@@ -1,5 +1,6 @@
 const orderModel = require("../models/Order");
 
+// Create a new order for the authenticated user
 async function createOrder(req, res) {
     try {
         const user = req.user;
@@ -16,6 +17,7 @@ async function createOrder(req, res) {
     }
 }
 
+// Get all of the authenticated user's orders
 async function getOrders(req, res) {
     try {
         const user = req.user;
@@ -27,6 +29,7 @@ async function getOrders(req, res) {
     }
 }
 
+// Get a specific order from ID
 async function getOrder(req, res){
     try {
         const { id } = req.params;

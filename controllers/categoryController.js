@@ -1,5 +1,6 @@
 const categoryModel = require('../models/Category');
 
+// Get all categories from DB and send as a response
 async function getAllCategories(req, res){
   try {
     const categories = await categoryModel.find();

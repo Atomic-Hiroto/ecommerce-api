@@ -4,6 +4,7 @@ const {
     getOrders,
     getOrder,
 } = require("../controllers/orderController");
+// Protect middleware for authentication
 const { protect } = require("../middlewares/auth");
 const orderRouter = express.Router();
 

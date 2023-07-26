@@ -1,5 +1,6 @@
 const productModel = require("../models/Product");
 
+// Get all products from our DB and send as res
 async function getAllProducts(req, res) {
     try {
         const products = await productModel.find();
@@ -10,6 +11,7 @@ async function getAllProducts(req, res) {
     }
 }
 
+// get specific product by Id 
 async function getProductById(req, res) {
     try {
         const id = req.params.id;
@@ -21,6 +23,7 @@ async function getProductById(req, res) {
     }
 }
 
+// Create new product
 async function createProduct(req, res) {
     try {
         const data = req.body;
@@ -32,6 +35,7 @@ async function createProduct(req, res) {
     }
 }
 
+// Update existing product
 async function updateProduct(req, res) {
     try {
         const id = req.params.id;
@@ -45,6 +49,7 @@ async function updateProduct(req, res) {
     }
 }
 
+// Delete product by ID
 async function deleteProduct(req, res) {
     try {
         const id = req.params.id;

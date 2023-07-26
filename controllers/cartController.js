@@ -1,5 +1,6 @@
 const cartModel = require("../models/Cart");
 
+// Create cart for the User
 async function createCart(req, res) {
     try {
         const user = req.user;
@@ -13,6 +14,7 @@ async function createCart(req, res) {
     }
 }
 
+// Get cart for a userID
 async function getCart(req, res) {
     try {
         const user = req.user;
@@ -29,6 +31,7 @@ async function getCart(req, res) {
     }
 }
 
+// Add to the authenticated user's cart
 async function addToCart(req, res) {
     try {
         const user = req.user;
@@ -51,6 +54,7 @@ async function addToCart(req, res) {
     }
 }
 
+// Update cart for the authenticated user.
 async function updateCartQuantity(req, res) {
     try {
         const user = req.user;
@@ -71,6 +75,7 @@ async function updateCartQuantity(req, res) {
     }
 }
 
+// Delete product from the authenticated user's cart
 async function deleteFromCart(req, res) {
     try {
         const user = req.user;

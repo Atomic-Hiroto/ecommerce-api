@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+// Custom authentication middleware function to check for JWT token
 function protect(req, res, next){
   let token;
   if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
