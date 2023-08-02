@@ -29,6 +29,7 @@ app.use(cors());
 app.use(express.json());
 
 
+
 // Base Routes
 app.get("/", (req, res) => {
     res.send("<h1>E-commerce API</h1><p>Check out the readme docs or the swagger documentation at /api-docs route</p>")

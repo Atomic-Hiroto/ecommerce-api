@@ -1,4 +1,6 @@
 const productModel = require("../models/Product");
+const fs = require("fs")
+const path = require("path")
 
 // Get all products from our DB and send as res
 async function getAllProducts(req, res) {
@@ -16,6 +18,7 @@ async function getProductById(req, res) {
     try {
         const id = req.params.id;
         const product = await productModel.findById(id);
+        product.imageFile = fs.readFileSync(`./static/products/productImg_${product._id}.jpg`)
         res.json(product);
     } catch (err) {
         console.error(err);
@@ -27,7 +30,11 @@ async function getProductById(req, res) {
 async function createProduct(req, res) {
     try {
         const data = req.body;
+        const image = req.body.image;
         const product = await productModel.create(data);
+        if(image){
+            fs.writeFileSync(`./static/products/productImg_${product._id}.jpg`,image)
+        }
         res.status(201).json(product);
     } catch (err) {
         console.error(err);
